@@ -84,7 +84,7 @@
       >
         <div class="container">
           <a class="navbar-brand title font-weight-lighter" href="/">
-            <span class="font-weight-bold">You</span> R. Name
+            <span class="font-weight-bold">Changxi</span> Zhu
           </a>
           <button
             class="navbar-toggler collapsed ml-auto"
@@ -162,9 +162,7 @@
 
         <article class="post-content">
           <div id="markdown-content">
-    {{ "
-
-
+{% capture md %}
 
 #### def run_swiglu
 
@@ -207,10 +205,7 @@ rather than
 ```Python
 torch.einsum("abc,...ab -> ...ac", rotation_matrix, in_query_or_key)
 ```
-
-
-
-" | markdownify }}
+{{ md | markdownify }}
           </div>
         </article>
 
