@@ -1,9 +1,3 @@
----
-layout: post
-title: "CS339: Assignment 1"
-tags: [notes]
----
-
 
 #### def run_swiglu
 
@@ -38,11 +32,13 @@ v_in = torch.einsum("abc,cde -> adbe", in_features, v_proj_weight)
 - Please note that the rotation matrix is applied according to:
 $$out = Rx$$
 where $R \in \mathcal{R}^{d*d}$ and $x \in \mathcal{R}^d$, where the second dimension (input dimension) is reduced. So we have:
+
 ```Python
 torch.einsum("abc,...ac -> ...ab", rotation_matrix, in_query_or_key)
 ```
 
 rather than
+
 ```Python
 torch.einsum("abc,...ab -> ...ac", rotation_matrix, in_query_or_key)
 ```
