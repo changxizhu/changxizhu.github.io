@@ -162,71 +162,55 @@
 
         <article class="post-content">
           <div id="markdown-content">
-
-<h2>Assignment 1</h2>
-
-<h4>def <code>run_swiglu</code></h4>
-<ul>
-  <li>
-    In <strong>CS336</strong>, we have the formula (which follows the paper
-    “GLU Variants Improve Transformer”) while \( V \) is \( W_3 \).
-  </li>
-</ul>
-
-<ul>
-  <li>
-    Note that \( d_{ff} \) is \( 4 \times d_{model} \) (inputs), and
-    <em>SwiGLU</em> suggests \( \tfrac{2}{3} \) to compensate the 3 weighting
-    matrices compared to the original 2 weight matrices.
-  </li>
-</ul>
+    {{ "
 
 
-<h4>def <code>run_scaled_dot_product_attention</code></h4>
-<ul>
-  <li>We need to mask out <code>False</code> as <code>inf</code> values before going into <code>softmax</code>:</li>
-</ul>
 
-<pre><code class="language-python">if mask is not None:
-    weights[~mask] = float('-inf')
-</code></pre>
+#### def run_swiglu
+
+- In **CS336**, we have the formula, which it actually follows the paper "GLU Variants Improve Transformer" while $V$ is $W_3$.
+
+- Note that $d_{ff}$ is 4* $d_{model}$ (inputs), and SwiGLu suggests $2/3$ to compensate the 3 weighting matrix compared to the original 2 weight matrix.
 
 
-<h4>def <code>run_multihead_self_attention</code></h4>
-<ul>
-  <li>
-    Remember that we need to transpose <em>heads</em> with <em>sequence</em>.
-    Here, we process the whole matrix for sequences \( \text{num\_heads} \) times,
-    with masking deciding the visibility of tokens. This differs from
-    <code>scaled_dot_product_attention</code>, where we operate directly on
-    queries, keys, and values.
-  </li>
-  <li>Therefore, we need to permute <em>heads</em> and <em>sequence</em>:</li>
-</ul>
 
-<pre><code class="language-python">q_in = torch.einsum("abc,cde -&gt; adbe", in_features, q_proj_weight)
-k_in = torch.einsum("abc,cde -&gt; adbe", in_features, k_proj_weight)
-v_in = torch.einsum("abc,cde -&gt; adbe", in_features, v_proj_weight)
-</code></pre>
+#### def run_scaled_dot_product_attention
 
-<h4>def <code>run_rope</code></h4>
-<ul>
-  <li>
-    Please note that the rotation matrix is applied according to:
-    \( \text{out} = R x \), where \( R \in \mathbb{R}^{d \times d} \) and
-    \( x \in \mathbb{R}^d \). The second dimension (input dimension) is reduced.
-    So we have:
-  </li>
-</ul>
+- We need to mask out $False$ as $inf$ values before going into $softmax$
+```Python
+if mask is not None:
+	weights[~mask] = float('-inf')
+```
 
-<pre><code class="language-python">torch.einsum("abc,...ac -&gt; ...ab", rotation_matrix, in_query_or_key)
-</code></pre>
+#### def run_multihead_self_attention
 
-<p>rather than</p>
+- Remember that we need to transpose $heads$ with $sequence$. Here, we are actually processing the whole matrix for sequences $num\_heads$ times, with masking decide the visibility of tokens. This is different from scaled_dot_product_attention, where we are processing "queries, keys, and values" directly.
+- Therefore, we need to permute $heads$ and $sequence$
+```Python
+q_in = torch.einsum("abc,cde -> adbe", in_features, q_proj_weight)
+k_in = torch.einsum("abc,cde -> adbe", in_features, k_proj_weight)
+v_in = torch.einsum("abc,cde -> adbe", in_features, v_proj_weight)
+```
 
-<pre><code class="language-python">torch.einsum("abc,...ab -&gt; ...ac", rotation_matrix, in_query_or_key)
-</code></pre>
 
+
+#### def run_rope
+
+- Please note that the rotation matrix is applied according to:
+$$out = Rx$$
+where $R \in \mathcal{R}^{d*d}$ and $x \in \mathcal{R}^d$, where the second dimension (input dimension) is reduced. So we have:
+```Python
+torch.einsum("abc,...ac -> ...ab", rotation_matrix, in_query_or_key)
+```
+
+rather than
+```Python
+torch.einsum("abc,...ab -> ...ac", rotation_matrix, in_query_or_key)
+```
+
+
+
+" | markdownify }}
           </div>
         </article>
 
