@@ -1,109 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://changxi.me/blog/2025/cs336_ass1/</loc>
-        <lastmod>2025-03-26T14:24:00+00:00</lastmod>
-    </url>
-    <url>
-        <loc>https://changxi.me/projects/1_project/</loc>
-        <lastmod>2025-11-07T10:02:31+00:00</lastmod>
-    </url>
-    <url>
-        <loc>https://changxi.me/projects/2_project/</loc>
-        <lastmod>2025-11-07T10:02:31+00:00</lastmod>
-    </url>
-    <url>
-        <loc>https://changxi.me/projects/3_project/</loc>
-        <lastmod>2025-11-07T10:02:31+00:00</lastmod>
-    </url>
-    <url>
-        <loc>https://changxi.me/projects/4_project/</loc>
-        <lastmod>2025-11-07T10:02:31+00:00</lastmod>
-    </url>
-    <url>
-        <loc>https://changxi.me/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/cv/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/news/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/projects/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/publications/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/teaching/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/2025/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/notes/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/links/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/images/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/code/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/math/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/comments/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/distill/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/diagrams/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/toc/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/tables/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/videos/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/audios/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/sidebar/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/blockquotes/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/jupyter/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/bib/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/charts/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/maps/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/tag/citation/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/</loc>
-    </url>
-    <url>
-        <loc>https://changxi.me/blog/page/2/</loc>
-    </url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://changxi.me/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://changxi.me/publications/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://changxi.me/projects/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://changxi.me/cv/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://changxi.me/teaching/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/2025/cs336_ass1/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/2025/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/page/2/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://changxi.me/projects/.</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://changxi.me/projects/1_project/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://changxi.me/assets/pdf/example_pdf.pdf</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/tag/formatting/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/tag/images/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/tag/links/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/tag/math/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/tag/code/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/tag/blockquotes/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/tag/citation/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://changxi.me/blog/tag/charts/</loc>
+  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
 </urlset>
