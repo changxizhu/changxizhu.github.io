@@ -3,7 +3,7 @@
 This repository hosts my **academic and research website**, built using the [**al-folio**](https://github.com/alshedivat/al-folio) Jekyll theme.  
 It contains my research interests, publications, blog posts, and teaching materials.
 
-> 🏠 **Live site:** [https://changxizhu.github.io](https://changxizhu.github.io)
+> 🏠 **Live site:** [https://changxi.me](https://changxi.me)
 
 ---
 

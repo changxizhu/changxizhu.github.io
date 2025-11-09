@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://changxizhu.github.io/sitemap.xml
+Sitemap: https://changxi.me/sitemap.xml
