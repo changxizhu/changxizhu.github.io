@@ -1,0 +1,9 @@
+# ------------------------------------------
+# Minimal config to enable custom pages
+# ------------------------------------------
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+    folder: _pages
