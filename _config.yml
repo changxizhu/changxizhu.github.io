@@ -1,8 +1,0 @@
-title: "My Website"
-url: "https://changxizhu.github.io"
-baseurl: ""  # important for username.github.io sites
-
-collections:
-  pages:
-    output: true
-    permalink: /:path/
