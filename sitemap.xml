@@ -4,100 +4,102 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
 
 <url>
   <loc>https://changxi.me/</loc>
-  <lastmod>2025-11-19T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://changxi.me/publications/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://changxi.me/projects/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://changxi.me/cv/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/2025/cs336_ass1/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/2025/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/page/2/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://changxi.me/projects/.</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://changxi.me/projects/1_project/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://changxi.me/assets/pdf/example_pdf.pdf</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <loc>https://changxi.me/assets/pdf/certificates/certificate_ASW.pdf</loc>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://changxi.me/assets/pdf/certificates/certificate_TT2_Changxi.pdf</loc>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://changxi.me/assets/pdf/certificates/certificaat_AW1_Changxi.pdf</loc>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/tag/formatting/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/tag/images/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/tag/links/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/tag/math/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/tag/code/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/tag/blockquotes/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/tag/citation/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://changxi.me/blog/tag/charts/</loc>
-  <lastmod>2025-11-09T11:10:00+00:00</lastmod>
+  <lastmod>2025-12-11T19:51:59+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 
