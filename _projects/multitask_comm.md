@@ -3,7 +3,7 @@ layout: page          # or 'project' if your fork has that layout
 title: "Learning Communication Skills in Multi-task Multi-agent DRL"
 description: "Project page for our multi-task multi-agent communication paper."
 img: /assets/img/publications/multitask_comm.png   # thumbnail for Projects grid (optional)
-permalink: /projects/multitask-comm/               # URL under your site
+permalink: /projects/multitask_comm/               # URL under your site
 ---
 
 <!-- Now the content of the page, like SemGesture -->
