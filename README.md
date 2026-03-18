@@ -17,4 +17,3 @@ It supports:
 - MathJax and syntax highlighting  
 - Responsive design with Bootstrap + MDBootstrap  
 
-
