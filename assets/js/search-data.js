@@ -34,6 +34,15 @@ ninja.data = [
     },
   },
   {
+    id: "project-learning-communication-skills",
+    title: "Learning Communication Skills in Multi-task Multi-agent Deep Reinforcement Learning",
+    description: "Project page for the 2025 paper.",
+    section: "Projects",
+    handler: () => {
+      window.location.href = "/projects/1_project/";
+    },
+  },
+  {
     id: "post-notes-for-cs336-assignment-1",
     title: "Notes for CS336 Assignment 1",
     description: "Notes for assignment 1 in CS336",

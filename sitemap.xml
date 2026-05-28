@@ -25,6 +25,10 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://changxi.me/projects/1_project/</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
     <loc>https://changxi.me/cv/</loc>
     <priority>0.80</priority>
   </url>
