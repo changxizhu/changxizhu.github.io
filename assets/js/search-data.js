@@ -43,6 +43,15 @@ ninja.data = [
     },
   },
   {
+    id: "post-notes-on-claude-agent-tools",
+    title: "Notes on Claude Agent Tools",
+    description: "Notes on web search, code execution, skills, MCP, context management, and managed agents.",
+    section: "Posts",
+    handler: () => {
+      window.location.href = "/blog/2026/agent-tools-notes/";
+    },
+  },
+  {
     id: "post-notes-for-cs336-assignment-1",
     title: "Notes for CS336 Assignment 1",
     description: "Notes for assignment 1 in CS336",

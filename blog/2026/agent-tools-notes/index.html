@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Notes on Claude Agent Tools | Changxi Zhu</title>
+    <meta name="author" content="Changxi Zhu" />
+    <meta
+      name="description"
+      content="Notes on web search, code execution, skills, MCP, context management, and managed agents."
+    />
+    <meta
+      name="keywords"
+      content="claude, agents, skills, mcp, context management, notes"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css"
+      integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw="
+      crossorigin="anonymous"
+    />
+    <link
+      defer
+      rel="stylesheet"
+      href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"
+    />
+    <link
+      defer
+      rel="stylesheet"
+      href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"
+    />
+    <link
+      defer
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"
+    />
+    <link
+      defer
+      rel="stylesheet"
+      href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99"
+      media=""
+      id="highlight_theme_light"
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/img/robot-love.svg" />
+    <link
+      rel="stylesheet"
+      href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"
+    />
+    <link
+      rel="canonical"
+      href="https://changxi.me/blog/2026/agent-tools-notes/"
+    />
+    <script src="/assets/js/theme.js?a81d82887dd692e91686b43de4542f18"></script>
+    <link
+      defer
+      rel="stylesheet"
+      href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca"
+      media="none"
+      id="highlight_theme_dark"
+    />
+    <script>
+      initTheme();
+    </script>
+  </head>
+  <body class="fixed-top-nav">
+    <header>
+      <nav
+        id="navbar"
+        class="navbar navbar-light navbar-expand-sm fixed-top"
+        role="navigation"
+      >
+        <div class="container">
+          <a class="navbar-brand title font-weight-lighter" href="/">
+            <span class="font-weight-bold">Changxi</span> Zhu
+          </a>
+          <button
+            class="navbar-toggler collapsed ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+              <li class="nav-item"><a class="nav-link" href="/">about </a></li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/blog/">blog </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/publications/">publications </a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="/cv/">curriculum vitae </a></li>
+
+              <li class="nav-item">
+                <button
+                  id="search-toggle"
+                  title="Search"
+                  onclick="openSearchModal()"
+                >
+                  <span class="nav-link"
+                    >ctrl k <i class="ti ti-search"></i
+                  ></span>
+                </button>
+              </li>
+              <li class="toggle-container">
+                <button id="light-toggle" title="Change theme">
+                  <i class="ti ti-sun-moon" id="light-toggle-system"></i>
+                  <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
+                  <i class="ti ti-sun-filled" id="light-toggle-light"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <progress id="progress" value="0">
+        <div class="progress-container"><span class="progress-bar"></span></div>
+      </progress>
+    </header>
+    <div class="container mt-5" role="main">
+      <div class="post">
+        <header class="post-header">
+          <h1 class="post-title">Notes on Claude Agent Tools</h1>
+          <p class="post-meta">Created on Jul 1, 2026</p>
+          <p class="post-tags">
+            <a href="/blog/2026/">
+              <i class="fa-solid fa-calendar fa-sm"></i> 2026
+            </a>
+            &nbsp; &middot; &nbsp;
+            <a href="/blog/tag/notes/">
+              <i class="fa-solid fa-hashtag fa-sm"></i> notes</a
+            >
+          </p>
+        </header>
+
+        <article class="post-content">
+          <div id="markdown-content">
+            <h2>Builtin Tools</h2>
+
+            <h3>Notes</h3>
+            <ul>
+              <li>
+                Web search 基于搜索结果内容/摘要/可引用片段来综合，所以结果更容易受 search query、排名、摘要内容、dynamic filtering 选择的影响。
+              </li>
+            </ul>
+
+            <h3>Test for Web Search</h3>
+            <ul>
+              <li>
+                询问最新的 Claude 模型时，新版本结果不稳定（使用了 dynamic filtering 处理搜索结果），反而旧版本（无 dynamic filtering）结果较为稳定。
+              </li>
+              <li>
+                每次查询使用 <code>web_search_request</code> 次数不同（取决于 Claude）。
+              </li>
+            </ul>
+
+            <pre><code>server_tool_use: ServerToolUsage(web_fetch_requests=0, web_search_requests=1)
+Web search: web_search_20250305 I'll search for the latest information on Anthropic's model releases.
+Web search: web_search_20250305 Anthropic's latest model release is Claude Fable 5 (along with its restricted sibling Claude Mythos 5),
+Web search: web_search_20250305 a Mythos-class model announced June 9, 2026 for enterprise customers and paid subscribers
+Web search: web_search_20250305 - though
+Web search: web_search_20250305 on June 12, 2026 Anthropic disabled access to it for all customers after a US government export-control directive, making the latest generally usable model Claude Opus 4.8 (released May 28, 2026).
+server_tool_use: ServerToolUsage(web_fetch_requests=0, web_search_requests=3)
+Web search: web_search_20260209 I'll search for the latest information on Anthropic's model releases.
+Web search: web_search_20260209 Anthropic's latest model release is
+Web search: web_search_20260209 Claude Opus 4.8, an upgrade to its Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+server_tool_use: ServerToolUsage(web_fetch_requests=0, web_search_requests=3)
+Web search: web_search_20260318 Anthropic's latest model release is
+Web search: web_search_20260318 Claude Opus 4.5, which Anthropic released on November 24, 2025, positioning it as "the best model in the world for coding, agents, and computer use."</code></pre>
+
+            <ul>
+              <li>
+                If I put limits on the sources that Claude can access, the results are still similar to before for <code>web_search_20260209</code>. But <code>web_search_20260318</code> seems to be improved. 但看起来，指定源后结果会更稳定，至少 <code>web_search_20260318</code> 两次搜索结果都是 Fable 5。
+              </li>
+            </ul>
+
+            <pre><code>server_tool_use: ServerToolUsage(web_fetch_requests=0, web_search_requests=1)
+Web search: web_search_20250305 I'll search for the latest information on Anthropic's model releases.
+Web search: web_search_20250305 Anthropic's latest model release is Claude Fable 5 - its most capable widely released model, built for demanding reasoning and long-horizon agentic work - which became generally available on June 9, 2026, alongside the limited-release Claude Mythos 5 offered through Project Glasswing.
+server_tool_use: ServerToolUsage(web_fetch_requests=0, web_search_requests=2)
+Web search: web_search_20260209 I'll search for the latest information on Anthropic's model releases.
+Web search: web_search_20260209 Let me check the newsroom for the most recent release details.
+Web search: web_search_20260209 Anthropic's latest model release is
+Web search: web_search_20260209 Claude Opus 4.8, the strongest computer-use and browser model
+Web search: web_search_20260209  that
+Web search: web_search_20260209 builds on Opus 4.7 with improvements across benchmarks, available today for the same price ($5 per million input tokens and $25 per million output tokens for regular usage)
+Web search: web_search_20260209 .
+server_tool_use: ServerToolUsage(web_fetch_requests=0, web_search_requests=2)
+Web search: web_search_20260318 I'll search for the latest information on Anthropic's model releases.
+Web search: web_search_20260318 Based on the search results, Anthropic's most capable widely released model is Claude Fable 5, with a separate cybersecurity-focused model also available in limited release.
+Web search: web_search_20260318 Anthropic's most capable widely released model is Claude Fable 5, which became generally available on the Claude API,AWS, Amazon Bedrock, Google Cloud, and Microsoft Foundry beginning June 9, 2026, while Claude Mythos 5 is offered only in limited availability to approved customers in Project Glasswing.</code></pre>
+
+            <ul>
+              <li>
+                同时测试了当删除用户 prompt 中精简回答的指令后，<code>web_search_20260209</code> 仍然只搜索出 Opus 4.8，不同的是此时 <code>web_search_20260209</code> 注意到结果的滞后。而 <code>web_search_20260318</code> 搜索结果仍然是 Fable 5，但使用了 <code>web_search_requests=6</code>，即使很早就知道 Fable 5 的存在。
+              </li>
+            </ul>
+
+            <pre><code>Anthropic also hinted at what's coming next:
+Web search: web_search_20260209 they plan to release a new class of model with even higher intelligence than Opus, and as part of Project Glasswing, a small number of organizations are currently using Claude Mythos Preview for cybersecurity work.
+Web search: web_search_20260209
+
+Note that the search result I found is about a month old, so there may be even newer releases. Would you like me to search for any more recent announcements?</code></pre>
+
+            <h3>Test for Code Execution</h3>
+            <ul>
+              <li>
+                在要求精简回答后，所有不同版本的代码执行结果都一样。当不要求后，除了早期版本 <code>code_execution_20250825</code>，其他结果可以更加精确。
+              </li>
+            </ul>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+              <li>
+                Takeaway 1: 不同版本的 web search 结果可能会不一样。如果希望结果稳定，可以指定源。
+              </li>
+              <li>
+                Takeaway 2: 新版本的 code execution 结果会更精确，但似乎使用 token 更多。
+              </li>
+            </ul>
+
+            <div class="soft-separator"></div>
+            <h2>Skills</h2>
+
+            <h3>Notes</h3>
+            <ul>
+              <li>Skills are about how you want it done, like a procedure.</li>
+              <li>
+                In a production app, this is how a team standardizes output across an entire feature.
+              </li>
+              <li>
+                Skills load progressively. Only the name and description load at startup; the full Skill loads into context when the agent decides to use it.
+              </li>
+              <li>Pair with code execution when the Skill's procedure needs to do real work.</li>
+              <li>Reach for a Skill when the how matters as much as the what.</li>
+            </ul>
+
+            <h3>Test for Skills</h3>
+            <ul>
+              <li>
+                一个 Skill = 一个文件夹/package，入口文件必须叫 <code>SKILL.md</code>。一个 skill 文件夹下面通常只能有一个 <code>SKILL.md</code>，其他 <code>.md</code> 可以存在，但只是 supporting files，不会被当成独立 skill。
+              </li>
+            </ul>
+
+            <pre><code>my-skill/
+├── SKILL.md          # 必须：入口说明
+├── resources/
+│   └── guide.md      # 可选：长文档/参考资料
+├── examples/
+│   └── example.md    # 可选：示例输出
+└── scripts/
+    └── helper.py     # 可选：脚本</code></pre>
+
+            <ul>
+              <li>
+                每个 skill 是一个 directory，<code>SKILL.md</code> 是 entrypoint；其他文件是可选的模板、示例、脚本或参考文档，需要在 <code>SKILL.md</code> 里引用，Claude 才知道什么时候加载它们。
+              </li>
+            </ul>
+
+            <blockquote>
+              <p>
+                注意：Skill 被创建后不可以重复创建，之后使用需要用 <code>skill.id</code> 来做 reference。
+              </p>
+            </blockquote>
+
+            <ul>
+              <li>
+                <code>client.beta.skills.create</code> 用来创建 skills，<code>client.beta.skills.versions.create</code> 用来更新版本，仍然使用同一个 <code>skill.id</code>。Custom skills 更新时要 create new versions；开发时可以用 <code>latest</code>，生产环境建议 pin 到具体版本。
+              </li>
+            </ul>
+
+            <blockquote>
+              <p>
+                不管是 Anthropic 预置 Skills 还是自定义 Skills，都通过 code execution tool 集成，并使用相同的 container 结构！这里，Skill 不是被当成普通 prompt 文本传进去的，而是被当成一个文件包挂载到一个 container 里。这个 container 的访问、文件读取、脚本运行，都走 code_execution 这套机制。如果你不想用 code_execution，那就不能用 <code>container.skills</code>。你只能把 skill 内容手动塞进 system 或 user prompt。
+              </p>
+            </blockquote>
+
+            <h3>Test for Git</h3>
+            <ul>
+              <li>
+                当试图使用 git 时，要么在 user prompt 里明确指出，要么在设计 skill 的包含触发条件如：git update after creating the report。
+              </li>
+              <li>
+                但是，code execution 是 Claude API 的 sandbox 环境。它不是你的本地 terminal，也不是你当前的 Git repo。所以执行不了 git。
+              </li>
+            </ul>
+
+            <blockquote>
+              <p>
+                code execution 是 Anthropic 提供的 server-executed tool。它的 Bash/Python 是在 Anthropic 的安全 sandbox container 里跑，不是在你的 Mac / 你的项目目录里跑。如果需要在本地跑，要么自己调用本地 git，要么用 Claude Code，这是运行在本地 terminal / IDE 里的 agentic coding 工具。
+              </p>
+            </blockquote>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+              <li>Takeaway 1: skills 是 guideline，具体执行仍然靠 tools。</li>
+            </ul>
+
+            <div class="soft-separator"></div>
+            <h2>MCP</h2>
+
+            <h3>Notes</h3>
+            <ul>
+              <li>
+                MCP connects Claude to third-party services, where the service provider maintains the integration.
+              </li>
+            </ul>
+
+            <blockquote>
+              <p>tools are for your stuff, skills are for your processes, and MCP is for everyone else's stuff</p>
+            </blockquote>
+
+            <h3>Test for MCP</h3>
+            <ul>
+              <li>By MCP, AI agents can access, read, and write with online platforms.</li>
+            </ul>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+              <li>
+                Takeaway 1: Online platforms expose their APIs through MCP server and AI agent can access these APIs by natural language.
+              </li>
+              <li>
+                Takeaway 2: MCP 本身不负责理解自然语言，主要依靠 Claude / LLM 来理解自然语言。
+              </li>
+            </ul>
+
+            <div class="soft-separator"></div>
+            <h2>Context Management</h2>
+
+            <h3>Notes</h3>
+            <ul>
+              <li>Three patterns to reduce tokens in the context window:</li>
+              <li>Just-in-time context：即用即读。</li>
+              <li>Server-side compaction：当前 session 的上下文压缩；默认是 15 万 input token 后触发。</li>
+              <li>
+                The memory tool：在 Claude Code（以及 Codex）中是 markdown 文件，每个项目都有自己的 <code>memory.md</code>。为了减少成本通常写成 notes 的形式。
+              </li>
+            </ul>
+
+            <pre><code>- 用户偏好
+- 项目规则
+- 调试经验
+- API 约定
+- 常用命令
+- 之前踩过的坑
+- 研究项目的长期状态
+- 某个任务的阶段性总结</code></pre>
+
+            <ul>
+              <li>
+                One pattern to reduce latency/cost: Prompt caching. 这相当于可以让同一个 prefix 处理多次请求，减少了 inference 阶段时 prefill 的重复计算。
+              </li>
+            </ul>
+
+            <blockquote>
+              <p>
+                5 分钟 cache write 是普通 input 的 1.25x，1 小时 cache write 是 2x，cache read 是普通 input 的 0.1x。实际使用中，如果开启 prompt caching，第一次写入 cache 会比普通 input 贵，但后续使用费用很低。因此，Prompt caching 减少后续请求里“需要重新计算/按普通输入价格计费的 token”，而不是后续请求的“上下文 token 数”（这个对于大模型来讲看到是一样的 prefix + new）。
+              </p>
+            </blockquote>
+
+            <pre><code>5m Cache Write = 把这段 prefix 缓存 5 分钟
+1h Cache Write = 把这段 prefix 缓存 1 小时
+Cache Hit = 在 TTL 还没过期时，后续请求复用了它，复用即可刷新</code></pre>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+              <li>Takeaway 1: 可以用减少 token 数量和重用上下文的角度去减少费用。</li>
+              <li>
+                Takeaway 2: 真正计费看的是 Anthropic 的 pricing categories：Base Input Tokens、5m Cache Writes、1h Cache Writes、Cache Hits &amp; Refreshes、Output Tokens。官方价格表就是按这些 token 类别分别定价，而不是按整个 context window 容量收费。
+              </li>
+            </ul>
+
+            <div class="soft-separator"></div>
+            <h2>Claude Managed Agents</h2>
+
+            <h3>Notes</h3>
+            <ul>
+              <li>
+                We define agents with specific tools, personas, and capabilities. We configure sandbox environments with the right packages and network controls.
+              </li>
+            </ul>
+
+            <blockquote>
+              <p>Session 自动管理 cache，而 prompt 时需要手动开启。</p>
+            </blockquote>
+
+            <h3>Test for Agents</h3>
+            <ul>
+              <li>创建完环境、agent、session 后可以通过 id 重复使用。</li>
+            </ul>
+
+            <blockquote>
+              <p>
+                env 复用不等于容器复用。env 更像 Docker image/template；真正的文件、安装状态、工作目录状态是在 session 的 sandbox 里。文档明确说多个 session 可以共享同一个 env，但每个 session 有独立 sandbox，session 之间不共享 filesystem state。
+              </p>
+            </blockquote>
+
+            <h3>Key Takeaways</h3>
+            <ul>
+              <li>Takeaway 1: 一个环境可以有多个 agents、多个 sessions，但一个 session 对应一个 agent 和一个环境。</li>
+              <li>Takeaway 2: 不同 session 之间文件不共享。</li>
+              <li>Takeaway 3: 同一个 session 内可以创建多个 subagent，这些 subagent 可以共享 session，但不共享同一个 context。</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+    <footer class="fixed-bottom" role="contentinfo">
+      <div class="container mt-0">
+        © 2026 Changxi Zhu. All rights reserved. Powered by
+        <a
+          href="https://jekyllrb.com/"
+          target="_blank"
+          rel="external nofollow noopener"
+          >Jekyll</a
+        >
+        with
+        <a
+          href="https://github.com/alshedivat/al-folio"
+          rel="external nofollow noopener"
+          target="_blank"
+          >al-folio</a
+        >
+        theme. Hosted by
+        <a
+          href="https://pages.github.com/"
+          target="_blank"
+          rel="external nofollow noopener"
+          >GitHub Pages</a
+        >.
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js"
+      integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script>
+    <script
+      defer
+      src="/assets/js/common.js?e0514a05c5c95ac1a93a8dfd5249b92e"
+    ></script>
+    <script
+      defer
+      src="/assets/js/copy_code.js?c8a01c11a92744d44b093fc3bda915df"
+      type="text/javascript"
+    ></script>
+    <script
+      defer
+      src="/assets/js/progress-bar.js?2f30e0e6801ea8f5036fa66e1ab0a71a"
+      type="text/javascript"
+    ></script>
+    <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
+    <script>
+      addBackToTop();
+    </script>
+    <script
+      type="module"
+      src="/assets/js/search/ninja-keys.min.js?a3446f084dcaecc5f75aa1757d087dcf"
+    ></script>
+    <ninja-keys
+      hidebreadcrumbs
+      noautoloadmdicons
+      placeholder="Type to start searching"
+    ></ninja-keys>
+    <script src="/assets/js/search-setup.js?6c304f7b1992d4b60f7a07956e52f04a"></script>
+    <script src="/assets/js/search-data.js"></script>
+    <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script>
+  </body>
+</html>
