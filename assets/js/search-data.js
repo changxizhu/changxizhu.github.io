@@ -26,14 +26,6 @@ ninja.data = [
     },
   },
   {
-    id: "nav-cv",
-    title: "curriculum vitae",
-    section: "Navigation",
-    handler: () => {
-      window.location.href = "/cv/";
-    },
-  },
-  {
     id: "project-learning-communication-skills",
     title: "Learning Communication Skills in Multi-task Multi-agent Deep Reinforcement Learning",
     description: "Project page for the 2025 paper.",
